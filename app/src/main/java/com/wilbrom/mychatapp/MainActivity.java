@@ -5,9 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
-import com.google.firebase.iid.FirebaseInstanceId;
 import com.wilbrom.mychatapp.adapter.MainAdapter;
 import com.wilbrom.mychatapp.utils.FakeData;
 
@@ -17,11 +15,11 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements MainAdapter.OnItemClickListener {
 
     public static final String DETAIL_EXTRA = "detail-extra";
+
     private RecyclerView mainRecyclerView;
     private MainAdapter mainAdapter;
 
     private List fakeData = new ArrayList();
-    private String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
