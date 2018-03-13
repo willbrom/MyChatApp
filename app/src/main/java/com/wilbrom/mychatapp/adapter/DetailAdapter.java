@@ -10,9 +10,12 @@ import android.widget.TextView;
 import com.wilbrom.mychatapp.R;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.ItemViewHolder> {
+
+    private Map<String, String> mMessagesList = new LinkedHashMap<>();
 
     @Override
     public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -22,22 +25,31 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.ItemViewHo
 
     @Override
     public void onBindViewHolder(ItemViewHolder holder, int position) {
-        holder.message.setText(R.string.default_message);
+        String message = (new ArrayList<String>(mMessagesList.values())).get(position);
+        String user = (new ArrayList<String>(mMessagesList.keySet())).get(position);
+
+        holder.mMessageTextView.setText(message);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mMessagesList.size();
+    }
+
+    public void setmMessagesList(Map<String, String> mMessagesList) {
+        this.mMessagesList = mMessagesList;
     }
 
     public class ItemViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView message;
+        private TextView mMessageTextView;
+        private TextView mUserTextView;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
 
-            message = (TextView) itemView.findViewById(R.id.message_textView);
+            mMessageTextView = (TextView) itemView.findViewById(R.id.message_textView);
+            mUserTextView = (TextView) itemView.findViewById(R.id.user_textView);
         }
     }
 }

@@ -9,18 +9,18 @@ import com.wilbrom.mychatapp.adapter.DetailAdapter;
 
 public class DetailActivity extends AppCompatActivity {
 
-    private RecyclerView detailRecyclerView;
-    private DetailAdapter adapter;
+    private RecyclerView mMessagesRecyclerView;
+    private DetailAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        detailRecyclerView = (RecyclerView) findViewById(R.id.detail_recyclerView);
-        detailRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        mMessagesRecyclerView = (RecyclerView) findViewById(R.id.detail_recyclerView);
+        mMessagesRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
-        adapter = new DetailAdapter();
-        detailRecyclerView.setAdapter(adapter);
+        mAdapter = new DetailAdapter();
+        mMessagesRecyclerView.setAdapter(mAdapter);
     }
 }
