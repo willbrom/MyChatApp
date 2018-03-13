@@ -10,14 +10,17 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class NetworkUtils {
     private static RequestQueue requestQueue;
 
-    public static void sendHttpsResponse(Context context) {
+    public static void sendHttpsResponse(Context context, String url) {
         if (requestQueue == null)
             requestQueue = Volley.newRequestQueue(context);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
@@ -32,9 +35,13 @@ public class NetworkUtils {
         })
         {
             @Override
-            protected void deliverResponse(String response) {
-                super.deliverResponse(response);
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("", "");
+                params.put("", "");
+                params.put("", "");
 
+                return params;
             }
         };
     }
