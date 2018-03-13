@@ -1,0 +1,135 @@
+{
+  "project_info": {
+    "project_number": "489281141515",
+    "firebase_url": "https://my-fcm-application-10d5a.firebaseio.com",
+    "project_id": "my-fcm-application-10d5a",
+    "storage_bucket": "my-fcm-application-10d5a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489281141515:android:f0cea454cdeb50e8",
+        "android_client_info": {
+          "package_name": "com.example.user.myfcmapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "489281141515-jsfcgfbkb9kthnt1r336ivspuk0c7drl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5qt69w_RQMsN2SvopmeT2AhoTmuiHXfM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489281141515:android:2934beb3ff1540dc",
+        "android_client_info": {
+          "package_name": "com.wilbrom.mychatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "489281141515-jsfcgfbkb9kthnt1r336ivspuk0c7drl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5qt69w_RQMsN2SvopmeT2AhoTmuiHXfM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489281141515:android:c6368dc359dce022",
+        "android_client_info": {
+          "package_name": "com.wilbrom.com.willbrom.mychatapp.samsung"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "489281141515-jsfcgfbkb9kthnt1r336ivspuk0c7drl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5qt69w_RQMsN2SvopmeT2AhoTmuiHXfM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489281141515:android:f9597ac3bc5f7b84",
+        "android_client_info": {
+          "package_name": "com.wilbrom.com.willbrom.mychatapp.lg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "489281141515-jsfcgfbkb9kthnt1r336ivspuk0c7drl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5qt69w_RQMsN2SvopmeT2AhoTmuiHXfM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
