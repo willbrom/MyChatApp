@@ -1,4 +1,4 @@
-package com.wilbrom.mychatapp;
+package com.wilbrom.mychatapp.sync;
 
 import android.util.Log;
 
