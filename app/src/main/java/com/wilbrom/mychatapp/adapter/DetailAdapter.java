@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.ItemViewHolder> {
 
-    private Map<String, String> mMessagesList = new LinkedHashMap<>();
+    private ArrayList<String[]> mMessagesList = new ArrayList<>();
 
     @Override
     public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -25,10 +25,11 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.ItemViewHo
 
     @Override
     public void onBindViewHolder(ItemViewHolder holder, int position) {
-        String message = (new ArrayList<String>(mMessagesList.values())).get(position);
-        String user = (new ArrayList<String>(mMessagesList.keySet())).get(position);
+        String message = mMessagesList.get(position)[0];
+        String user = mMessagesList.get(position)[1];
 
         holder.mMessageTextView.setText(message);
+        holder.mUserTextView.setText(user);
     }
 
     @Override
@@ -36,7 +37,7 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.ItemViewHo
         return mMessagesList.size();
     }
 
-    public void setmMessagesList(Map<String, String> mMessagesList) {
+    public void setmMessagesList(ArrayList mMessagesList) {
         this.mMessagesList = mMessagesList;
         notifyDataSetChanged();
     }

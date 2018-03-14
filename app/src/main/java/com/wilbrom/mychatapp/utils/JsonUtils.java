@@ -41,8 +41,8 @@ public class JsonUtils {
         }
     }
 
-    public static Map<String, String> parseDetailListJson(Context context, String rawJson) {
-        Map<String, String> dataMap = new HashMap<>();
+    public static ArrayList<String[]> parseDetailListJson(Context context, String rawJson) {
+        ArrayList<String[]> dataList = new ArrayList<>();
 
         try {
             JSONObject rootObj = new JSONObject(rawJson);
@@ -54,13 +54,15 @@ public class JsonUtils {
                 String type = dataArray.getJSONObject(i).getString("type");
                 String date = dataArray.getJSONObject(i).getString("created_at");
 
-                dataMap.put("message", msg);
-                dataMap.put("type", type);
-                dataMap.put("date", date);
+                dataList.add(new String[]{msg, type, date});
+//
+//                dataMap.put("message", msg);
+//                dataMap.put("type", type);
+//                dataMap.put("date", date);
             }
 
-            Log.d(TAG, "dataMap length: " + dataMap.size());
-            return dataMap;
+//            Log.d(TAG, "dataMap length: " + dataMap.size());
+            return dataList;
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
