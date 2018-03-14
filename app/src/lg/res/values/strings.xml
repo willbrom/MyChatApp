@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="message_title">LG</string>
+<string name="url">http://192.168.1.107/FcmExample/v1/samsung</string>
+</resources>
