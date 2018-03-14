@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">My Chat Samsung</string>
+
     <string name="message_title">Samsung</string>
 
     <string name="url">http://192.168.1.107/FcmExample/v1/lg</string>
