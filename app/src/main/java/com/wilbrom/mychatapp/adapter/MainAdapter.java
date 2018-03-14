@@ -44,6 +44,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ItemViewHolder
 
     public void setmItemList(List mItemList) {
         this.mItemList = mItemList;
+        notifyDataSetChanged();
     }
 
     public class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

@@ -13,7 +13,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
 
-        String title = remoteMessage.getNotification().getTitle();
-        Log.d(TAG, "Notification title is: " + title);
+//        String body = remoteMessage.getNotification().getBody();
+//        Log.d(TAG, "Notification body is: " + body);
     }
 }

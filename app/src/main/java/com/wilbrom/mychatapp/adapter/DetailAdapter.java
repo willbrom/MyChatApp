@@ -20,7 +20,7 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.ItemViewHo
     @Override
     public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        return new ItemViewHolder(layoutInflater.inflate(R.layout.item_layout_main, parent, false));
+        return new ItemViewHolder(layoutInflater.inflate(R.layout.item_layout_detail, parent, false));
     }
 
     @Override
@@ -38,6 +38,7 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.ItemViewHo
 
     public void setmMessagesList(Map<String, String> mMessagesList) {
         this.mMessagesList = mMessagesList;
+        notifyDataSetChanged();
     }
 
     public class ItemViewHolder extends RecyclerView.ViewHolder {

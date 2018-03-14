@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<string name="message_title">LG</string>
-<string name="url">http://192.168.1.107/FcmExample/v1/samsung</string>
+    <string name="message_title">LG</string>
+
+    <string name="url">http://192.168.1.107/FcmExample/v1/samsung</string>
+    <string name="url_register">http://192.168.1.107/fcm_chatapp/v1/registeruser</string>
+    <string name="url_message">http://192.168.1.107/fcm_chatapp/v1/notificationtoagent</string>
+    <string name="url_list">http://192.168.1.107/fcm_chatapp/v1/getagentslist</string>
+
+    <string name="list_id">agent_id</string>
+
+    <string name="email">lg-user@lg.com</string>
+
+    <!---->
+    <string name="type">User</string>
+    <string name="title">From User</string>
 </resources>

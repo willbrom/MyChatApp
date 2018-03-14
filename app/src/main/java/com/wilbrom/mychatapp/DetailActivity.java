@@ -1,6 +1,8 @@
 package com.wilbrom.mychatapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,6 +13,7 @@ import android.widget.EditText;
 
 import com.wilbrom.mychatapp.adapter.DetailAdapter;
 import com.wilbrom.mychatapp.sync.MyMessagingService;
+import com.wilbrom.mychatapp.utils.JsonUtils;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -30,15 +33,34 @@ public class DetailActivity extends AppCompatActivity {
 
         mAdapter = new DetailAdapter();
         mMessagesRecyclerView.setAdapter(mAdapter);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String data = prefs.getString("pref-key", "no data");
+
+        if (!data.equals("no data")) {
+            mAdapter.setmMessagesList(JsonUtils.parseDetailListJson(this, data));
+        }
     }
 
     public void onClickSend(View view) {
-        String message = mMessageEditText.getText().toString();
+        String body = mMessageEditText.getText().toString();
+        String type = getString(R.string.type);
+        String title = getString(R.string.title);
+        String userId = "4";
+        String agentId = "3";
 
-        if (!TextUtils.isEmpty(message)) {
+        if (!TextUtils.isEmpty(body)) {
             Intent intent = new Intent(this, MyMessagingService.class);
             intent.setAction(MyMessagingService.ACTION_SEND_MESSAGE);
-            intent.putExtra(Intent.EXTRA_TEXT, message);
+
+            Bundle bundle = new Bundle();
+            bundle.putString(MyMessagingService.BUNDLE_TYPE_EXTRA, type);
+            bundle.putString(MyMessagingService.BUNDLE_TITLE_EXTRA, title);
+            bundle.putString(MyMessagingService.BUNDLE_MESSAGE_EXTRA, body);
+            bundle.putString(MyMessagingService.BUNDLE_USERID_EXTRA, userId);
+            bundle.putString(MyMessagingService.BUNDLE_AGENTID_EXTRA, agentId);
+
+            intent.putExtra(Intent.EXTRA_TEXT, bundle);
             startService(intent);
         }
     }
