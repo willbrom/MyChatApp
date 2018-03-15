@@ -10,17 +10,23 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.wilbrom.mychatapp.adapter.DetailAdapter;
+import com.wilbrom.mychatapp.sync.MyFirebaseMessagingService;
 import com.wilbrom.mychatapp.sync.MyMessagingService;
 import com.wilbrom.mychatapp.utils.JsonUtils;
 
-public class DetailActivity extends AppCompatActivity {
+import java.util.ArrayList;
 
-    private RecyclerView mMessagesRecyclerView;
+public class DetailActivity extends AppCompatActivity implements MyFirebaseMessagingService.OnMessageReceivedListener {
+
+    public static RecyclerView mMessagesRecyclerView;
     private EditText mMessageEditText;
 
     private DetailAdapter mAdapter;
+
+    private ArrayList<String[]> mMessagesList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,14 +38,17 @@ public class DetailActivity extends AppCompatActivity {
         mMessagesRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         mAdapter = new DetailAdapter();
+        mAdapter.setmMessagesList(mMessagesList);
+        mAdapter.notifyDataSetChanged();
         mMessagesRecyclerView.setAdapter(mAdapter);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String data = prefs.getString("pref-key", "no data");
-
-        if (!data.equals("no data")) {
-            mAdapter.setmMessagesList(JsonUtils.parseDetailListJson(this, data));
-        }
+//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+//        String data = prefs.getString("pref-key", "no data");
+//
+//        if (!data.equals("no data")) {
+//            mAdapter.setmMessagesList(JsonUtils.parseDetailListJson(this, data));
+//        }
+        MyFirebaseMessagingService.attachListener(this);
     }
 
     public void onClickSend(View view) {
@@ -63,5 +72,19 @@ public class DetailActivity extends AppCompatActivity {
             intent.putExtra(Intent.EXTRA_TEXT, bundle);
             startService(intent);
         }
+    }
+
+    @Override
+    public void onMessageReceived(String msg) {
+        mMessagesList.add(new String[] {msg, msg, msg});
+        final String m = msg;
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mAdapter.notifyItemInserted(mMessagesList.size());
+                mMessagesRecyclerView.smoothScrollToPosition(mMessagesList.size());
+                Toast.makeText(DetailActivity.this, m, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

@@ -24,7 +24,8 @@ public class MyFirebaseInstanceIdService extends FirebaseInstanceIdService {
 
         Bundle bundle = new Bundle();
         bundle.putString(MyMessagingService.BUNDLE_TOKEN_EXTRA, token);
-        bundle.putString(MyMessagingService.BUNDLE_EMAIL_EXTRA, getString(R.string.email));
+        bundle.putString(MyMessagingService.BUNDLE_ID_EXTRA, getString(R.string.id));
+//        bundle.putString(MyMessagingService.BUNDLE_EMAIL_EXTRA, getString(R.string.email));
 
         intent.putExtra(Intent.EXTRA_TEXT, bundle);
         startService(intent);

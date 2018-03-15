@@ -1,6 +1,5 @@
 package com.wilbrom.mychatapp.utils;
 
-
 import java.util.ArrayList;
 
 public class FakeData {

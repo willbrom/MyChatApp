@@ -1,6 +1,5 @@
 package com.wilbrom.mychatapp.utils;
 
-
 import android.content.Context;
 import android.util.Log;
 
@@ -55,13 +54,8 @@ public class JsonUtils {
                 String date = dataArray.getJSONObject(i).getString("created_at");
 
                 dataList.add(new String[]{msg, type, date});
-//
-//                dataMap.put("message", msg);
-//                dataMap.put("type", type);
-//                dataMap.put("date", date);
             }
 
-//            Log.d(TAG, "dataMap length: " + dataMap.size());
             return dataList;
         } catch (JSONException e) {
             e.printStackTrace();

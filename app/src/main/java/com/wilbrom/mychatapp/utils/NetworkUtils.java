@@ -1,6 +1,5 @@
 package com.wilbrom.mychatapp.utils;
 
-
 import android.content.Context;
 import android.util.Log;
 

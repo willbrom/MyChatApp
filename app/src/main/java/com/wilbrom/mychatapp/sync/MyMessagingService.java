@@ -32,6 +32,7 @@ public class MyMessagingService extends Service implements NetworkUtils.OnTransa
     // ACTION_REGISTER Extras
     public static final String BUNDLE_EMAIL_EXTRA = "email-extra";
     public static final String BUNDLE_TOKEN_EXTRA = "token-extra";
+    public static final String BUNDLE_ID_EXTRA = "id-extra";
 
     public MyMessagingService() {
     }
@@ -59,11 +60,13 @@ public class MyMessagingService extends Service implements NetworkUtils.OnTransa
     }
 
     private void handleActionRegister(Bundle bundle) {
-        String email = bundle.getString(BUNDLE_EMAIL_EXTRA);
+//        String email = bundle.getString(BUNDLE_EMAIL_EXTRA);
         String token = bundle.getString(BUNDLE_TOKEN_EXTRA);
+        String id = bundle.getString(BUNDLE_ID_EXTRA);
 
         Map<String, String> params = new HashMap<>();
-        params.put("email", email);
+//        params.put("email", email);
+        params.put(getString(R.string.update_id), id);
         params.put("fcm_token", token);
 
         NetworkUtils.setmParams(params);

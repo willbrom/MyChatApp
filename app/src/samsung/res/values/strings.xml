@@ -5,13 +5,19 @@
     <string name="message_title">Samsung</string>
 
     <string name="url">http://192.168.1.107/FcmExample/v1/lg</string>
-    <string name="url_register">http://192.168.1.107/fcm_chatapp/v1/registeragent</string>
+
+    <!--<string name="url_register">http://192.168.1.107/fcm_chatapp/v1/registeragent</string>-->
+
+    <string name="url_register">http://192.168.1.107/fcm_chatapp/v1/updateagenttoken</string>
     <string name="url_message">http://192.168.1.107/fcm_chatapp/v1/notificationtouser</string>
     <string name="url_list">http://192.168.1.107/fcm_chatapp/v1/getuserslist</string>
+
+    <string name="update_id">agent_id</string>
 
     <string name="list_id">user_id</string>
 
     <string name="email">samsung-user@samsung.com</string>
+    <string name="id">3</string>
 
     <!---->
     <string name="type">Agent</string>
