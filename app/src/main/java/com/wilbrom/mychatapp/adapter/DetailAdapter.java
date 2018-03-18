@@ -31,7 +31,16 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.ItemViewHo
         String user = mMessagesList.get(position)[1];
         String date = mMessagesList.get(position)[2];
 
-        holder.mMessageTextView.setText(message);
+        if (!holder.itemView.getContext().getString(R.string.type).equals(user)) {
+            holder.mMessageTextView2.setVisibility(View.INVISIBLE);
+            holder.mMessageTextView.setVisibility(View.VISIBLE);
+            holder.mMessageTextView.setText(message);
+        } else {
+            holder.mMessageTextView.setVisibility(View.INVISIBLE);
+            holder.mMessageTextView2.setVisibility(View.VISIBLE);
+            holder.mMessageTextView2.setText(message);
+        }
+
         holder.mUserTextView.setText(user);
         holder.mDateTextView.setText(date);
     }
@@ -45,15 +54,10 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.ItemViewHo
         this.mMessagesList = mMessagesList;
     }
 
-    public void insertNewItem(String[] newItem) {
-        Log.d(TAG, "Item added: " + this.mMessagesList.add(newItem));
-
-//        DetailActivity.mMessagesRecyclerView.smoothScrollToPosition(mMessagesList.size());
-    }
-
     public class ItemViewHolder extends RecyclerView.ViewHolder {
 
         private TextView mMessageTextView;
+        private TextView mMessageTextView2;
         private TextView mUserTextView;
         private TextView mDateTextView;
 
@@ -61,6 +65,7 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.ItemViewHo
             super(itemView);
 
             mMessageTextView = (TextView) itemView.findViewById(R.id.message_textView);
+            mMessageTextView2 = (TextView) itemView.findViewById(R.id.message_textView2);
             mUserTextView = (TextView) itemView.findViewById(R.id.user_textView);
             mDateTextView = (TextView) itemView.findViewById(R.id.date_textView);
         }

@@ -59,6 +59,8 @@ public class DetailActivity extends AppCompatActivity implements MyFirebaseMessa
         String agentId = "3";
 
         if (!TextUtils.isEmpty(body)) {
+            mMessageEditText.setText("");
+
             mMessagesList.add(new String[] {body, type, ""});
             mAdapter.notifyItemInserted(mMessagesList.size());
             mMessagesRecyclerView.smoothScrollToPosition(mMessagesList.size());
